@@ -91,6 +91,7 @@ public class FormProduk extends javax.swing.JFrame {
         tblProduk = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Form Produk");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

@@ -48,7 +48,7 @@ public class FormPenjualan extends javax.swing.JFrame {
       try {
             String sql="insert into penjualan (PenjualanID,DetailID,TanggalPenjualan,JamPenjualan,TotalHarga) value (?,?,?,?,?)";
             pst=konek.prepareStatement(sql);
-            pst.setString(1, txtIP.getText());
+            pst.setString(1, txtIPN.getText());
             pst.setString(2, iddetail);
             pst.setString(3, tgl);
             pst.setString(4, jam);
@@ -132,28 +132,30 @@ public class FormPenjualan extends javax.swing.JFrame {
     
     public void autonumber(){
     try{
-        String sql = "SELECT MAX(RIGHT(PenjualanID,3)) AS NO FROM penjualan";
-        pst=konek.prepareStatement(sql);
-        rst=pst.executeQuery();
-        while (rst.next()) {
-                if (rst.first() == false) {
-                    txtIPN.setText("IDP001");
-                } else {
-                    rst.last();
-                    int auto_id = rst.getInt(1) + 1;
-                    String no = String.valueOf(auto_id);
-                    int NomorJual = no.length();
-                    for (int j = 0; j < 3 - NomorJual; j++) {
-                        no = "0" + no;
-                    }
-                    txtIPN.setText("IDP" + no);
-                }
-            }
-        rst.close();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);}
+       String sql = "SELECT MAX(RIGHT(PenjualanID,3)) AS NO FROM penjualan";
+       pst =konek.prepareStatement(sql);
+       rst = pst.executeQuery();
+       while (rst.next()) {
+           if(rst.first() == false) {
+               txtIPN.setText("IDP001");
+           }else {
+               rst.last();
+               int auto_id =rst.getInt(1) + 1;
+               String no =String.valueOf(auto_id);
+               int NomorJual = no.length();
+               for (int j = 0; j < 3 - NomorJual; j++) {
+                   no = "0" + no;
+               }
+               txtIPN.setText("IDP" + no);
+           }
+           
+           }
+       
+    rst.close();
+    }catch (Exception e) {
+    JOptionPane.showMessageDialog(null,e);}
     }
-    
+
     public void detail(){
     try {
         String Kode_detail=txtIPN.getText();
@@ -222,6 +224,7 @@ public class FormPenjualan extends javax.swing.JFrame {
         btnTambah = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Form  Penjualan");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -237,6 +240,10 @@ public class FormPenjualan extends javax.swing.JFrame {
                 btnCariActionPerformed(evt);
             }
         });
+
+        txtTgl.setEnabled(false);
+
+        txtJam.setEnabled(false);
 
         tblBarang.setBackground(new java.awt.Color(153, 204, 255));
         tblBarang.setModel(new javax.swing.table.DefaultTableModel(
@@ -259,6 +266,8 @@ public class FormPenjualan extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Jumlah");
+
+        txtIPN.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Id Penjualan");
@@ -462,7 +471,7 @@ public class FormPenjualan extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(81, 81, 81)
@@ -475,16 +484,13 @@ public class FormPenjualan extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(45, 45, 45))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

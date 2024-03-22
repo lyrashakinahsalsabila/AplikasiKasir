@@ -70,6 +70,7 @@ public class FormRegister extends javax.swing.JFrame {
         txtPw = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Form Register");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 

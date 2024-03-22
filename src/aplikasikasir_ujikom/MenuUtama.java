@@ -33,7 +33,6 @@ public class MenuUtama extends javax.swing.JFrame {
     }
     public void mulai() {
         Register.setEnabled(false);
-        LOGIN.setEnabled(false);
         Logout.setEnabled(false);
         Master.setEnabled(false);
         Transaksi.setEnabled(false);
@@ -42,8 +41,8 @@ public class MenuUtama extends javax.swing.JFrame {
         txtTgl.setEnabled(false);
         FormLogin.setVisible(false);
         btnRegis.setEnabled(false);
-        btnProduk.setEnabled(false);
         btnPelanggan.setEnabled(false);
+        btnProduk.setEnabled(false);
         btnPenjualan.setEnabled(false);
         
     }
@@ -107,9 +106,13 @@ public class MenuUtama extends javax.swing.JFrame {
         Transaksi = new javax.swing.JMenu();
         Penjual = new javax.swing.JMenuItem();
         Laporan = new javax.swing.JMenu();
+        RkpLap = new javax.swing.JMenuItem();
         Tentang = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Utama");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         txtJam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +186,11 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel8.setText("Hak Akses");
 
         btnBatal.setText("BATAL");
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalActionPerformed(evt);
+            }
+        });
 
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -317,10 +325,30 @@ public class MenuUtama extends javax.swing.JFrame {
 
         Laporan.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\icons8-report-25.png")); // NOI18N
         Laporan.setText("Laporan");
+
+        RkpLap.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\icons8-report-25 (1).png")); // NOI18N
+        RkpLap.setText("RekapLaporan");
+        RkpLap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RkpLapActionPerformed(evt);
+            }
+        });
+        Laporan.add(RkpLap);
+
         jMenuBar1.add(Laporan);
 
-        Tentang.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\icons8-about-25.png")); // NOI18N
-        Tentang.setText("Tentang");
+        Tentang.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\icons8-get-help-25 (1).png")); // NOI18N
+        Tentang.setText("Help");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-about-25.png"))); // NOI18N
+        jMenuItem1.setText("Tentang");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Tentang.add(jMenuItem1);
+
         jMenuBar1.add(Tentang);
 
         setJMenuBar(jMenuBar1);
@@ -329,18 +357,16 @@ public class MenuUtama extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(428, 428, 428)
                 .addComponent(txtJam, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(FormLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(FormLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(btnRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,43 +375,41 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addComponent(btnProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(btnPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addComponent(btnPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(116, 116, 116)
                 .addComponent(jLabel1)
                 .addGap(139, 139, 139)
                 .addComponent(jLabel2)
                 .addGap(127, 127, 127)
-                .addComponent(jLabel3)
-                .addGap(117, 117, 117))
+                .addComponent(jLabel3))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblUser))
                     .addComponent(txtJam, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUser))
-                .addGap(63, 63, 63)
+                    .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
                 .addComponent(FormLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegis, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel1))
-                .addContainerGap(184, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)))
         );
 
         pack();
@@ -451,22 +475,72 @@ new FormPenjualan().setVisible(true);
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 try{
-    String sql ="select * from login where username='"+txtUser+"'&& password='"+txtPw.getText()+"'&& HakAkses='"+cmbHA.getSelectedItem()+"'";
+    String sql ="select * from login where username='"+txtUser.getText()+"'and  password='"+txtPw.getText()+"'and HakAkses='"+cmbHA.getSelectedItem()+"'";
     pst =konek.prepareStatement(sql);
     rst=pst.executeQuery();
     if(rst.next()) {
     if(txtUser.getText().equals(rst.getString("username"))&& txtPw.getText().equals(rst.getString("password"))&& cmbHA.getSelectedItem().equals(rst.getString("HakAkses")));
     if(cmbHA.getSelectedItem().equals("Admin")){
+         Register.setEnabled(true);
+        Logout.setEnabled(true);
+        Master.setEnabled(true);
+        Transaksi.setEnabled(true);
+        Laporan.setEnabled(true);
+        txtJam.setEnabled(false);
+        txtTgl.setEnabled(false);
+        FormLogin.setVisible(false);
+        btnRegis.setEnabled(true);
+        btnPelanggan.setEnabled(true);
+        btnProduk.setEnabled(true);
+        btnPenjualan.setEnabled(true);
+    }else if (cmbHA.getSelectedItem().equals("petugas")){
+       Register.setEnabled(false);
+        Logout.setEnabled(true);
+        Master.setEnabled(true);
+        Transaksi.setEnabled(true);
+        Laporan.setEnabled(true);
+        txtJam.setEnabled(true);
+        txtTgl.setEnabled(true);
+        FormLogin.setVisible(true);
+        btnRegis.setEnabled(true);
+        btnPelanggan.setEnabled(true);
+        btnProduk.setEnabled(true);
+        btnPenjualan.setEnabled(true);
         
     }
-    }
+    {
     
-}catch (Exception e){
-    JOptionPane.showMessageDialog(null, "Login GAGAL,SILAHKAN COBA LAGI");
-    
+
+    JOptionPane.showMessageDialog(null, "Selamat Datang '"+txtUser.getText()+"'");
+    String text =txtUser.getText();
+    lblUser.setText("Selamat Datang," +text);
+}
+    } else {
+   JOptionPane.showMessageDialog(null, "Gagal Masuk, periksa kembali ");
+   txtUser.getText();
+   txtPw.getText();
+   cmbHA.setSelectedItem("-Pilih Salah Satu");
+            }
+}catch (Exception e) {
+    JOptionPane.showMessageDialog(null,"login gagal");
 }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void RkpLapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RkpLapActionPerformed
+new FormLaporanTransaksi().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RkpLapActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+new FormAbout().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+new MenuUtama().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBatalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -514,6 +588,7 @@ try{
     private javax.swing.JMenuItem Penjual;
     private javax.swing.JMenuItem Produksi;
     private javax.swing.JMenuItem Register;
+    private javax.swing.JMenuItem RkpLap;
     private javax.swing.JMenu Tentang;
     private javax.swing.JMenu Transaksi;
     private javax.swing.JButton btnBatal;
@@ -532,6 +607,7 @@ try{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblUser;
     private javax.swing.JTextField txtJam;
     private javax.swing.JPasswordField txtPw;
