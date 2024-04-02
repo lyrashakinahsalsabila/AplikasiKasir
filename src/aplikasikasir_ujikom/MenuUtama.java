@@ -114,12 +114,14 @@ public class MenuUtama extends javax.swing.JFrame {
         setTitle("Menu Utama");
         setBackground(new java.awt.Color(255, 255, 255));
 
+        txtJam.setEnabled(false);
         txtJam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJamActionPerformed(evt);
             }
         });
 
+        txtTgl.setEnabled(false);
         txtTgl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTglActionPerformed(evt);
@@ -493,16 +495,16 @@ try{
         btnPelanggan.setEnabled(true);
         btnProduk.setEnabled(true);
         btnPenjualan.setEnabled(true);
-    }else if (cmbHA.getSelectedItem().equals("petugas")){
+    }else if (cmbHA.getSelectedItem().equals("Petugas")){
        Register.setEnabled(false);
         Logout.setEnabled(true);
         Master.setEnabled(true);
         Transaksi.setEnabled(true);
         Laporan.setEnabled(true);
-        txtJam.setEnabled(true);
-        txtTgl.setEnabled(true);
-        FormLogin.setVisible(true);
-        btnRegis.setEnabled(true);
+        txtJam.setEnabled(false);
+        txtTgl.setEnabled(false);
+        FormLogin.setVisible(false);
+        btnRegis.setEnabled(false);
         btnPelanggan.setEnabled(true);
         btnProduk.setEnabled(true);
         btnPenjualan.setEnabled(true);
